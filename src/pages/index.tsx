@@ -15,6 +15,7 @@ interface Image {
   ts: number;
   id: string;
 }
+
 interface GetImagesResponse {
   after: string;
   data: Image[];
@@ -38,7 +39,7 @@ export default function Home(): JSX.Element {
     fetchNextPage,
     hasNextPage,
   } = useInfiniteQuery('images', fetchImages, {
-    getNextPageParam: lastPage => lastPage.after || null,
+    getNextPageParam: lastPage => lastPage?.after || null,
   });
 
   const formattedData = useMemo(() => {
