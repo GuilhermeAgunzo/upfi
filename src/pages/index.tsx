@@ -22,7 +22,7 @@ interface GetImagesResponse {
 
 export default function Home(): JSX.Element {
   async function fetchImages({ pageParam = null }): Promise<GetImagesResponse> {
-    const { data } = await api.get('api/images', {
+    const { data } = await api.get('/api/images', {
       params: {
         after: pageParam,
       },
